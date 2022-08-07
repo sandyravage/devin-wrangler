@@ -1,7 +1,7 @@
-import { Client, GatewayIntentBits } from 'discord.js';
-import fs from 'fs';
-import fetch from 'node-fetch';
-import pixelmatch from 'pixelmatch';
+const { Client, GatewayIntentBits } = require('discord.js');
+const fs = require('fs');
+const fetch = require('node-fetch');
+const pixelmatch = require('pixelmatch');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]})
 
