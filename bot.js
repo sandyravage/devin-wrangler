@@ -28,7 +28,7 @@ client.on("messageCreate", async (msg) => {
     const currentImg = PNG.sync.read(currentBuffer);
     console.log("got current image width: " + currentImg.width);
     console.log("got current image height: " + currentImg.height);
-    const diff = pixelmatch(refImg.data, currentBuffer, null, 684, 716);
+    const diff = pixelmatch(refImg.data, currentImg.data, null, 684, 716);
 
     msg.channel.send("got diff: " + diff);
     //client.channels.cache.get(msg.channel.id).send(`also deleted ur message partner. <@${msg.author.id}> hee hee`);
