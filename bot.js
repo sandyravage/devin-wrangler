@@ -13,5 +13,5 @@ client.on("messageCreate", (msg) => {
     console.log("got message: " + msg.content);
     msg.delete();
     client.channels.cache.get(msg.channel.id).send("benis");
-    client.channels.cache.get(msg.channel.id).send("also deleted ur message partner. hee hee");
+    client.channels.cache.get(msg.channel.id).send("also deleted ur message partner. @datboy hee hee");
 });
