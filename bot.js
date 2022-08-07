@@ -1,6 +1,6 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const fs = require('fs');
-const fetch = require('node-fetch');
+const fetch = require('fetch');
 const pixelmatch = require('pixelmatch');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]})
@@ -13,7 +13,7 @@ client.login(process.env.DISCORD_TOKEN);
 
 const refData = fs.readFileSync('./recursion.png', 'utf8');
 
-client.on("messageCreate", (msg) => {
+client.on("messageCreate", async (msg) => {
     if(msg.author.bot || msg.attachments.size == 0) return;
     const response = await fetch(msg.attachments.first().url);
     const arrayBuffer = await response.arrayBuffer();
