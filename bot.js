@@ -1,6 +1,5 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const fs = require('fs');
-const fetch = await import('node-fetch');
 const pixelmatch = require('pixelmatch');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]})
@@ -17,6 +16,7 @@ let array = [];
 
 client.on("messageCreate", async (msg) => {
     if(msg.author.bot || msg.attachments.size == 0) return;
+    const fetch = await import('node-fetch');
     const response = await fetch(msg.attachments.first().url);
     const arrayBuffer = await response.arrayBuffer();
     const currentData = Buffer.from(arrayBuffer);
