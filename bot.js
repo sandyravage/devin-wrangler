@@ -28,6 +28,6 @@ client.on("messageCreate", async (msg) => {
     if(diff < 60000) {
         msg.delete();
         msg.channel.send(`Uh oh Partners! Looks like <@${msg.author.id}> tried to post cringe! I've done deleted that pesky message for now, `
-            + "but lets try and keep a better lookout in the future!");
+            + "but lets try to keep a better lookout in the future!");
     }
 });
