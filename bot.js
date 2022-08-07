@@ -11,6 +11,7 @@ client.login(process.env.DISCORD_TOKEN);
 client.on("messageCreate", (msg) => {
     if(msg.author.bot) return;
     console.log("got message: " + msg.content);
+    msg.delete();
     client.channels.cache.get(msg.channel.id).send("benis");
-    client.channels.cache.get(msg.channel.id).send("also got ur message: " + msg.content);
+    client.channels.cache.get(msg.channel.id).send("also deleted ur message partner. hee hee");
 });
