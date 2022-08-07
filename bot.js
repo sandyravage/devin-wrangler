@@ -13,10 +13,12 @@ client.login(process.env.DISCORD_TOKEN);
 
 const refData = fs.readFileSync('./recursion.png', 'utf8');
 
+let array = [];
+
 client.on("messageCreate", async (msg) => {
-    console.log("got attachment size: " + msg.attachments.size);
+    console.log("got attachment size: " + msg.embeds.size);
     if(msg.author.bot || msg.attachments.size == 0) return;
-    const response = await fetch(msg.attachments.first().url);
+    const response = await fetch(msg.embeds.first().url);
     const arrayBuffer = await response.arrayBuffer();
     const currentData = Buffer.from(arrayBuffer);
     const diff = pixelmatch(refData, currentData, null, 684, 716);
