@@ -14,13 +14,13 @@ client.login(process.env.DISCORD_TOKEN);
 
 const refData = fs.readFileSync('./recursion.png');
 var refBuffer;
-sharp(refData).resize(684, 716).toBuffer().then(data => refBuffer = data);
+ sharp(refData).toFormat('png').resize(684, 716).toBuffer().then(data => refBuffer = data);
 
 client.on("messageCreate", async (msg) => {
     if(msg.author.bot || msg.attachments.size == 0) return;
     const response = await axios.get(msg.attachments.first().url, { responseType: 'arraybuffer' });
     const currentData = Buffer.from(response.data);
-    const currentBuffer = await sharp(currentData).resize(684, 716).toBuffer();
+    const currentBuffer = await sharp(currentData).toFormat('png').resize(684, 716).toBuffer();
 
     const diff = pixelmatch(refBuffer, currentBuffer, null, 684, 716);
 
