@@ -9,6 +9,7 @@ client.once('ready', () => {
 client.login(process.env.DISCORD_TOKEN);
 
 client.on("messageCreate", (msg) => {
-    console.log("got message: " + msg);
+    if(msg.author.bot) return;
+    console.log("got message: " + msg.content);
     client.channels.cache.get(msg.channel.id).send("benis");
 });
