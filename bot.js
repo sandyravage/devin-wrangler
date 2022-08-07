@@ -11,9 +11,7 @@ client.once('ready', () => {
 
 client.login(process.env.DISCORD_TOKEN);
 
-const refData = fs.readFileSync('./recursion.png', 'utf8');
-
-let array = [];
+const refData = fs.readFileSync('./recursion.png');
 
 client.on("messageCreate", async (msg) => {
     if(msg.author.bot || msg.attachments.size == 0) return;
