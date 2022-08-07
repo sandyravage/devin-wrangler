@@ -1,4 +1,5 @@
 const { Client, GatewayIntentBits } = require('discord.js');
+const fs = require('fs');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]})
 
@@ -7,6 +8,10 @@ client.once('ready', () => {
 });
 
 client.login(process.env.DISCORD_TOKEN);
+
+const refData = fs.readFileSync('./recursion.png', 'utf8');
+
+console.log("got ref Data: " + refData);
 
 client.on("messageCreate", (msg) => {
     if(msg.author.bot) return;
