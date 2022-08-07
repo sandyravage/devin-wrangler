@@ -10,5 +10,5 @@ client.login(process.env.DISCORD_TOKEN);
 
 client.on("messageCreate", (msg) => {
     console.log("got message: " + msg);
-    client.channels.get(msg.channel.id, "benis");
+    client.channels.cache.get(msg.channel.id).send("benis");
 });
